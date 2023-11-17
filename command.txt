@@ -41,7 +41,10 @@ ln -s a.txt b.txt
 head a.txt | tail a.txt
 rm -rf dirname // delete all the files and directory
 
-** permission accept and denial
+** permission accept and denial 
+-w file Is writeable file
+-r file Is read-only file
+-x file Is file is executable
 
 -------------------------- useful commands-------------------------------------
 
