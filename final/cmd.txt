@@ -1,0 +1,6 @@
+cmd.txt
+dup.class
+hello.class
+names.txt
+practice1.sh
+rsorted.txt

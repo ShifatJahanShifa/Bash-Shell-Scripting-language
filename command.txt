@@ -1,0 +1,121 @@
+command: 
+
+date
+ls
+pwd
+ls -al
+calendar
+who
+man ls
+
+process related:
+-----------------------------------
+ps
+ps -ag  // to get info about running processes
+
+directory related commands: 
+-----------------------------------
+mkdir
+rmdir
+cd
+ls
+pwd
+
+file related commands:
+---------------------------------
+cp
+mv
+rm
+touch
+
+** -i : interactive 
+
+hard link || soft link
+ln a.txt b.txt
+ln -s a.txt b.txt
+
+** cat>text.txt  , after that i will enter the contents of the file, then to stop writing, ctrl+d
+   cat text.txt
+
+// cat a.txt | more or less , usages
+head a.txt | tail a.txt
+rm -rf dirname // delete all the files and directory
+
+** permission accept and denial
+
+-------------------------- useful commands-------------------------------------
+
+wc    =count words, characters, and lines in a file  done
+du    =report disk space used by a file(s)
+diff       =compare two files and report differences
+head ,tail
+
+*****************************
+// grep hi
+grep	= search a pattern in a file
+sort a.txt | sort -r a.txt= sort a file
+uniq a.txt= uniq result thakbe
+find	= find files in a directory
+locate	a.txt=location of a file in the eintire system
+which	ls | vi =command's full path
+
+----------------------------- in depth of the useful commands ---------------------------------------
+
+(1) diff:  code : c, a, d
+.........................................
+
+ls | diff -u - <(ls -al) // - first command, + second command
+
+
+
+
+
+
+(2) grep: 
+......................................................
+grep B cse.txt | sort | tail -n 1 |tr -d '\n' | wc -c  // very very important
+awk 'NR == FNR { lines++ } END { print int(lines/2) + 1 }' cse.txt | xargs -I {} sed -n "{}p" cse.txt  // very very important mid element
+
+
+
+(3) wc:
+.....................................
+wc f1.txt
+wc -l txt
+wc -c f1.txt
+wc -w f1.txt
+wc f1.txt f2.txt
+ls | wc -l
+(4) sort: 
+.....................................
+
+sort a.txt 
+sort -r a.txt
+sort -n f1.txt  // sort a numeric file
+
+(5) tail, head:
+..........................................
+
+tail -6 cse.txt | head -n 1
+tail +3 cse.txt | head -n 8  // the middle part
+
+
+-------------------------------------- string -------------------------------------
+reverse = "$reverse${string:$i:1}" done // reverse a string, access each character in string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
