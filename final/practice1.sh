@@ -102,11 +102,11 @@
 #echo $r
 
 #------------------------- q 9 -0--------------
-n1=5.12
-n2=2.5
-c=$( echo $n1 + $n2 | bc)
+#n1=5.12
+#n2=2.5
+#c=$( echo $n1 + $n2 | bc)
 #echo $n1+$n2 | bc
-echo $c
+#echo $c
 
 
 #------------color--------------------
@@ -135,8 +135,12 @@ echo $c
 #echo "${bold}${white}Hello World${reset}"
 
 #-------------------------------- file -------------------------------------------------
-file=$(ls [^d-p]*)
-echo ${file[@]}
+#file=$(ls [^d-p]*)
+#echo ${file[@]}
+
+#-------------------------------- du ----------------------------------------
+#dir=$1
+#du -hc --max-depth=3 $dir
 #------------------------------------ diff command------------------------------------------
 #diff command
 ##cat>students.txt
@@ -155,5 +159,62 @@ echo ${file[@]}
 
 #grep B cse.txt | wc -l
 #grep B cse.txt | sort | head -n 1 |tr -d '\n' | wc -c
-#awk 'NR == FNR { lines++ } END { print int(lines/2) + 1 }' cse.txt | xargs -I {} sed -n "{}p" cse.txt
+#awk 'NR == FNR { lines++ } END { print int(lines/2) + 1 }' cse.txt | xargs -I {} sed -n "{}p" cse.txt 
 
+#file=$2
+#p=$1
+#p1=$2
+#grep -i $p $file
+#grep -vi $p $file
+#grep -ic $p $file
+#grep -h l cse.txt
+#grep -l l *
+#grep -n l cse.txt
+#grep -io l cse.txt | wc -l
+#grep -ie $p -ie $p1 $file
+#grep ^$p $file
+#grep $p$ $file
+
+#-------------------------------- sort ---------------------------
+#file=$2
+#p=$1
+#p1=$2
+#sort $p $p1 | uniq -d 
+#sort $p $p1 | uniq -c 
+
+#-------------string ------------
+string="hello"
+sub="el"
+if [[ $string == *$sub* ]] 
+then 
+    echo sub
+else 
+    echo non-sub
+fi
+
+str="Hello"
+sub="el"
+if [[ $str =~ ^[A-Z](.*)$ ]] 
+then 
+    echo yes
+else 
+    echo no
+fi
+
+str="HELLO"
+sub="el"
+if [[ $str =~ ^[A-Z]+$ ]] 
+then 
+    echo yes
+else 
+    echo no
+fi
+
+str="Hello"
+sub="el"
+if [[ $str =~ ^[a-zA-Z]+$ ]] 
+then 
+    echo yes
+else 
+    echo no
+fi

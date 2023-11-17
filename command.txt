@@ -79,7 +79,7 @@ ls | diff -u - <(ls -al) // - first command, + second command
 grep B cse.txt | sort | tail -n 1 |tr -d '\n' | wc -c  // very very important
 awk 'NR == FNR { lines++ } END { print int(lines/2) + 1 }' cse.txt | xargs -I {} sed -n "{}p" cse.txt  // very very important mid element
 
-
+grep -io l cse.txt | wc -l // very very important mapping
 
 (3) wc:
 .....................................
@@ -89,6 +89,7 @@ wc -c f1.txt
 wc -w f1.txt
 wc f1.txt f2.txt
 ls | wc -l
+
 (4) sort: 
 .....................................
 
@@ -102,9 +103,80 @@ sort -n f1.txt  // sort a numeric file
 tail -6 cse.txt | head -n 1
 tail +3 cse.txt | head -n 8  // the middle part
 
+(6) du:
+................................
+
+du -h dir
+du -ha dir
+du -hac --max-depth=2 dir
+du -ha --max-depth=2 parent | sort -h
+
+(7) uniq: 
+................
+
+uniq file // sorted file
+uniq -d file // sorted file will print the duplicates
+uniq -u file
+uniq -c file // sorted file works like map
+
+----------------------------- find ----------------------------
+
+1. Search for a file with a specific name.
+
+$ find ./GFG -name sample.txt 
+
+2. Search for a file with pattern.
+
+$ find ./GFG -name *.txt 
+
+3. How to find and delete a file with confirmation.
+
+$ find ./GFG -name sample.txt -exec rm -i {} \; 
+
+4. Search for empty files and directories.
+
+$ find ./GFG -empty
+
+5. Search for file with entered permissions.
+
+$ find ./GFG -perm 664
+
+6. Displays repositories and sub-repositories
+
+find . -type d
+
+7. Search text within multiple files.
+
+$ find ./ -type f -name "*.txt" -exec grep 'Geek'  {} \;
+This command print lines which have ‘Geek’ in them and ‘-type f’ specifies the input type is a file. 
+
+
 
 -------------------------------------- string -------------------------------------
 reverse = "$reverse${string:$i:1}" done // reverse a string, access each character in string
+if [[ $string == *$sub* ]] // important
+
+---------------------------------------- file -------------------------------------
+
+1.#!/bin/bash
+read -p "Enter file name : " filename
+while read line
+do 
+echo $line
+done < $filename
+
+2. tac ==  nl geeks.txt | sort -nr | cut -f 2-
+3. -b file
+
+------------------------------ sir ----------------------------------
+
+tr -s '[:space:][:punct:]' '\n' < test.txt | sort | uniq -c | awk '{print $2, $1}'
+tr -s '[:space:].,;:"'\''(){}[]?!&*' < example.txt | grep -v '^$' | sort | uniq -c | awk '{print $2, $1}'   // by chance
+
+file="test.txt"
+
+# Get specific information for the file
+ls -l "$file" | awk '{print $1, $3, $4, $5, $6, $7, $8}'
 
 
 
